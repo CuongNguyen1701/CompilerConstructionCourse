@@ -211,8 +211,14 @@ Token *getToken(void)
     readChar();
     return token;
   case CHAR_PERIOD:
-    token = makeToken(SB_PERIOD, lineNo, colNo);
     readChar();
+    if (charCodes[currentChar] == CHAR_RPAR)
+    {
+      token = makeToken(SB_RSEL, lineNo, colNo);
+      readChar();
+      return token;
+    }
+    token = makeToken(SB_PERIOD, lineNo, colNo);
     return token;
   case CHAR_COLON:
     token = makeToken(SB_COLON, lineNo, colNo);
@@ -238,6 +244,12 @@ Token *getToken(void)
       readChar();
       skipComment();
       return getToken();
+    }
+    else if (charCodes[currentChar] == CHAR_PERIOD)
+    {
+      token = makeToken(SB_LSEL, ln, cn);
+      readChar();
+      return token;
     }
     else
     {
