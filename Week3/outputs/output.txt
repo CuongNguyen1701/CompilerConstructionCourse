@@ -1,0 +1,87 @@
+Parsing a Program ....
+3-1:KW_PROGRAM
+3-10:TK_IDENT(EXAMPLE5)
+3-18:SB_SEMICOLON
+Parsing a Block ....
+4-1:KW_CONST
+4-7:TK_IDENT(MAX)
+4-11:SB_EQ
+4-13:TK_NUMBER(10)
+4-15:SB_SEMICOLON
+5-1:KW_TYPE
+5-6:TK_IDENT(T)
+5-8:SB_EQ
+5-10:KW_INTEGER
+5-17:SB_SEMICOLON
+6-1:KW_VAR
+6-6:TK_IDENT(A)
+6-8:SB_COLON
+6-10:KW_ARRAY
+6-15:SB_LSEL
+6-18:TK_NUMBER(10)
+6-21:SB_RSEL
+6-24:KW_OF
+6-27:TK_IDENT(T)
+6-28:SB_SEMICOLON
+7-6:TK_IDENT(N)
+7-8:SB_COLON
+7-10:KW_INTEGER
+7-17:SB_SEMICOLON
+8-6:TK_IDENT(CH)
+8-9:SB_COLON
+8-11:KW_CHAR
+8-15:SB_SEMICOLON
+9-6:TK_IDENT(B)
+9-7:SB_COLON
+9-9:TK_IDENT(BYTES)
+9-14:SB_SEMICOLON
+Parsing subtoutines ....
+Parsing a procedure ....
+11-1:KW_PROCEDURE
+11-11:TK_IDENT(INPUT)
+11-16:SB_SEMICOLON
+Parsing a Block ....
+12-1:KW_VAR
+12-5:TK_IDENT(I)
+12-7:SB_COLON
+12-9:KW_INTEGER
+12-16:SB_SEMICOLON
+13-5:TK_IDENT(TMP)
+13-9:SB_COLON
+13-11:KW_INTEGER
+13-18:SB_SEMICOLON
+Parsing subtoutines ....
+Subtoutines parsed ....
+14-1:KW_BEGIN
+Parsing an assign statement ....
+15-3:TK_IDENT(N)
+15-5:SB_ASSIGN
+Parsing an expression
+15-8:TK_IDENT(READI)
+Expression parsed
+Assign statement parsed ....
+15-13:SB_SEMICOLON
+Parsing an assign statement ....
+16-3:TK_IDENT(I)
+16-5:SB_ASSIGN
+Parsing an expression
+16-8:TK_NUMBER(1)
+Expression parsed
+Assign statement parsed ....
+16-9:SB_SEMICOLON
+Parsing a repeat statement ....
+17-3:KW_REPEAT
+Parsing an assign statement ....
+18-5:TK_IDENT(A)
+18-6:SB_LSEL
+Parsing an expression
+18-8:TK_IDENT(I)
+Expression parsed
+18-9:SB_RSEL
+18-12:SB_ASSIGN
+Parsing an expression
+18-15:TK_IDENT(READI)
+Expression parsed
+Assign statement parsed ....
+18-20:SB_SEMICOLON
+19-3:Invalid statement!
