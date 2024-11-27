@@ -466,7 +466,13 @@ void compileRepeatSt(void)
   assert("Parsing a repeat statement ....");
   // TODO
   eat(KW_REPEAT);
-  compileStatements();
+  if (lookAhead->tokenType == KW_BEGIN)
+    compileStatements();
+  else
+  {
+    compileStatement();
+    eat(SB_SEMICOLON);
+  }
   eat(KW_UNTIL);
   compileCondition();
   assert("Repeat statement parsed ....");
