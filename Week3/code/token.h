@@ -22,7 +22,7 @@ typedef enum
   KW_TYPE,
   KW_VAR,
   KW_INTEGER,
-  KW_BYTE,
+  KW_BYTES,
   KW_CHAR,
   KW_ARRAY,
   KW_OF,

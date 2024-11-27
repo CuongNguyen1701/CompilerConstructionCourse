@@ -161,14 +161,19 @@ Token *getToken(void)
     readChar();
     return token;
   case CHAR_TIMES:
+    ln = lineNo;
+    cn = colNo;
     readChar();
-    if (currentChar == CHAR_TIMES)
+    if ((currentChar != EOF) && (charCodes[currentChar] == CHAR_TIMES))
     {
-      token = makeToken(SB_EXP, lineNo, colNo);
+      readChar();
+      return makeToken(SB_EXP, ln, cn);
+    }
+    else
+    {
+      token = makeToken(SB_TIMES, lineNo, colNo);
       return token;
     }
-    token = makeToken(SB_TIMES, lineNo, colNo);
-    return token;
   case CHAR_SLASH:
     token = makeToken(SB_SLASH, lineNo, colNo);
     readChar();
@@ -293,7 +298,7 @@ Token *getValidToken(void)
 
 void printToken(Token *token)
 {
-  
+
   printf("%d-%d: ", token->lineNo, token->colNo);
   switch (token->tokenType)
   {
@@ -328,8 +333,8 @@ void printToken(Token *token)
   case KW_INTEGER:
     printf("KW_INTEGER\n");
     break;
-  case KW_BYTE:
-    printf("KW_BYTE\n");
+  case KW_BYTES:
+    printf("KW_BYTES\n");
     break;
   case KW_CHAR:
     printf("KW_CHAR\n");

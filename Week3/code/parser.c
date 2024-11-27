@@ -242,8 +242,8 @@ void compileType(void)
   case KW_INTEGER:
     eat(KW_INTEGER);
     break;
-  case KW_BYTE:
-    eat(KW_BYTE);
+  case KW_BYTES:
+    eat(KW_BYTES);
     break;
   case KW_CHAR:
     eat(KW_CHAR);
@@ -268,7 +268,7 @@ void compileType(void)
 void compileBasicType(void)
 {
   // TODO
-  if (lookAhead->tokenType == KW_INTEGER || lookAhead->tokenType == KW_BYTE || lookAhead->tokenType == KW_CHAR)
+  if (lookAhead->tokenType == KW_INTEGER || lookAhead->tokenType == KW_BYTES || lookAhead->tokenType == KW_CHAR)
   {
     eat(lookAhead->tokenType);
   }
@@ -466,13 +466,9 @@ void compileRepeatSt(void)
   assert("Parsing a repeat statement ....");
   // TODO
   eat(KW_REPEAT);
-  if (lookAhead->tokenType == KW_BEGIN)
-    compileStatements();
-  else
-  {
-    compileStatement();
+  compileStatement();
+  if (lookAhead->tokenType == SB_SEMICOLON)
     eat(SB_SEMICOLON);
-  }
   eat(KW_UNTIL);
   compileCondition();
   assert("Repeat statement parsed ....");
@@ -597,7 +593,7 @@ void compileTerm(void)
 void compileTerm2(void)
 {
   // TODO
-  if (lookAhead->tokenType == SB_TIMES || lookAhead->tokenType == SB_SLASH)
+  if (lookAhead->tokenType == SB_TIMES || lookAhead->tokenType == SB_SLASH || lookAhead->tokenType == SB_EXP)
   {
     eat(lookAhead->tokenType);
     compileFactor();
