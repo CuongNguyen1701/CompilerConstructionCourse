@@ -1,4 +1,4 @@
-/* 
+/*
  * @copyright (c) 2008, Hedspi, Hanoi University of Technology
  * @author Huu-Duc Nguyen
  * @version 1.0
@@ -13,11 +13,15 @@ int currentChar;
 
 int readChar(void) {
   currentChar = getc(inputStream);
+  if (currentChar == EOF) {
+    return EOF;
+  }
   colNo ++;
   if (currentChar == '\n') {
     lineNo ++;
     colNo = 0;
   }
+  printf("%c", currentChar);
   return currentChar;
 }
 
@@ -34,4 +38,3 @@ int openInputStream(char *fileName) {
 void closeInputStream() {
   fclose(inputStream);
 }
-
