@@ -52,8 +52,11 @@ Type *duplicateType(Type *type)
   // DONE
   Type *newType = (Type *)malloc(sizeof(Type));
   newType->typeClass = type->typeClass;
-  newType->arraySize = type->arraySize;
-  newType->elementType = type->elementType;
+  if (type->typeClass == TP_ARRAY)
+  {
+    newType->arraySize = type->arraySize;
+    newType->elementType = type->elementType;
+  }
   return newType;
 }
 
